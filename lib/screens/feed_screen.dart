@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'widgets/Post.dart';
+import '../widgets/post.dart';
 
 class FeedScreen extends StatelessWidget {
   @override

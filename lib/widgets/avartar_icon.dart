@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/constants/common_numbers.dart';
 
 class AvartarIcon extends StatelessWidget {
-  const AvartarIcon({
-    Key key,
+  final double size;
+
+  AvartarIcon({
+    Key key, this.size=avatar_Size
   }) : super(key: key);
 
   @override
@@ -12,8 +14,8 @@ class AvartarIcon extends StatelessWidget {
     return ClipOval(
       child: CachedNetworkImage(
         imageUrl: 'https://picsum.photos/100',
-        width: avatar_Size,
-        height: avatar_Size,
+        width: size,
+        height: size,
       ),
     );
   }
