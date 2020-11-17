@@ -5,14 +5,34 @@ import 'package:instagram_clone/constants/screen_size.dart';
 import 'package:instagram_clone/widgets/avartar_icon.dart';
 
 class ProfileWidget extends StatefulWidget {
+  final Function onMenuChanged;
+
+  const ProfileWidget({Key key, this.onMenuChanged}) : super(key: key);
+
   @override
   _ProfileWidgetState createState() => _ProfileWidgetState();
 }
 
-class _ProfileWidgetState extends State<ProfileWidget> {
+class _ProfileWidgetState extends State<ProfileWidget>
+    with SingleTickerProviderStateMixin {
   SelectedTab _selectedTab = SelectedTab.left;
   double _leftMarginSize = 0;
   double _righMarginSize = size.width;
+  AnimationController _animationController;
+
+  @override
+  void initState() {
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +73,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           textAlign: TextAlign.center,
         )),
         IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {},
+          icon: AnimatedIcon(
+            icon: AnimatedIcons.menu_close,
+            progress: _animationController,
+            color: Colors.black87,
+          ),
+          onPressed: () {
+            widget.onMenuChanged();
+            _animationController.status == AnimationStatus.completed
+                ? _animationController.reverse()
+                : _animationController.forward();
+          },
         )
       ],
     );

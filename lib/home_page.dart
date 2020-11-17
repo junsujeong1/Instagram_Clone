@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/screens/feed_screen.dart';
 import 'constants/screen_size.dart';
-import 'file:///C:/Users/junsu%20jeongj/AndroidStudioProjects/instagram_clone/lib/screens/feed_screen.dart';
 import 'package:instagram_clone/screens/profile_screen.dart';
 
-class home_page extends StatefulWidget {
-  home_page({
+class HomePage extends StatefulWidget {
+  HomePage({
     Key key,
   }) : super(key: key);
 
   @override
-  _home_pageState createState() => _home_pageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _home_pageState extends State<home_page> {
+class _HomePageState extends State<HomePage> {
 
   List<BottomNavigationBarItem> BtmNavBarItems = [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),

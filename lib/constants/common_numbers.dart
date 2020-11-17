@@ -1,6 +1,7 @@
 ///commonly used values
 const double common_padding = 8.0;
 const double common_xxs_padding = 3.0;
+const double common_logo_gap = 30;
 
 
 ///Feed section Header
